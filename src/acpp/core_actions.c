@@ -573,6 +573,9 @@ int add_storage(char* name, unsigned size, ac_sto_types type, char* typestr, cha
     else{ /* Generic cache object */
       if (pstorage->size==0){
         sprintf(error_msg, "Invalid size in cache declaration: %s", name);
+	if (pstorage->format) free(pstorage->format);
+	if (pstorage->name) free(postorage->name);
+	if (pstorage) free(pstorage);
         return 0;
       }
       else
