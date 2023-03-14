@@ -1812,9 +1812,10 @@ int acpp_asm_add_pseudo_member(char *pseudo, char *error_msg)
   strlist *sl = (strlist *)malloc(sizeof(strlist));
   sl->next = NULL;
 
-  if (!acpp_asm_parse_asm_string(pseudo, 1, error_msg))
+  if (!acpp_asm_parse_asm_string(pseudo, 1, error_msg)) {
+    if ( sl ) free(sl);
     return 0;
-
+  }
   sl->str = (char *) malloc(strlen(formatted_pseudo)+1);
   strcpy(sl->str, formatted_pseudo);
 
