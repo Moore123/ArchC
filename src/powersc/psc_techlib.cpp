@@ -133,6 +133,7 @@ void psc_techlib::print( const char *fname )
 	fprintf( fp, "  Leakage power: %.4eW\n", m_d_unit_leakpwr );
 	fprintf( fp, "  Dynamic power: %.4eW\n", m_d_unit_dynpwr );
 	fprintf( fp, "-------------------------------------------------------\n" );
+	if ( ( fname ) && ( fp!=NULL ) ) fclose(fp);
 }
 
 //--------------------------------------------------------------------------
